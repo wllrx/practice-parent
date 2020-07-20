@@ -1,0 +1,130 @@
+server:
+  port: 5560
+#注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://zoe:zoe@127.0.0.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
+spring:
+  application:
+    name: zuul
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/practice?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # 在没有连接可用的情况下等待超时时间
+      connection-timeout: 30000
+      # 核心连接池最大大小
+      maximum-pool-size: 5
+      minimum-idle: 1
+      idle-timeout: 30000
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+  jackson:
+    time-zone: GMT+8
+mybatis-plus:
+  global-config:
+    # 排除banner
+    banner: false
+    # 配置逻辑删除
+    db-config:
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      id-type: auto
+  # 枚举扫描包
+  type-enums-package: cn.wllsrx.zoe.enums
+  # xml文件路径
+  mapper-locations: classpath:/mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+zuul:
+  routes:
+    cinema:
+      path: /cinema/**
+      serviceId: cinema
+    film:
+      path: /film/**
+      serviceId: film
+    hall:
+      path: /hall/**
+      serviceId: hall
+    user:
+      path: /user/**
+      serviceId: user
+  #开启重试机制
+  retryable: true
+  #限流
+  ratelimit:
+    enabled: true
+    policy-list:
+      cinema:
+        - limit: 20
+          refresh-interval: 1
+          type:
+            - url
+      film:
+        - limit: 20
+          refresh-interval: 1
+          type:
+            - url
+      hall:
+        - limit: 20
+          refresh-interval: 1
+          type:
+            - url
+      user:
+        - limit: 2
+          refresh-interval: 1
+          type:
+            - url
+    repository: redis
+  #zuul默认忽略请求头信息  test被过滤掉,其他请求头信息都不会被过滤
+  sensitive-headers: "test"
+  #放行test请求头,其他请求头信息都会被过滤
+  ignored-headers: "test"
+  #统一前缀
+  prefix:
+#hystrix的超时时间
+hystrix:
+  command:
+    # default为默认所有，可以配置指定服务名
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+ribbon:
+  ReadTimeout: 10000
+  socketTimeOut: 10000
+tools:
+  doc:
+    enable: true
+    group:
+      # 是否开启聚合模式, 默认 False
+      enable: true
+      # 聚合类型，可用值有url(文档地址)、name(服务名，一般用在zuul网关等)
+      type: name
+      # 服务列表
+      service-list:
+        - desc: 网关服务
+          url: zuul
+        # 下拉选择时展示的名称
+        - desc: 影院模块
+          # 跟随zuul网关路由的path而定，如上为：/demo/**，那么这里应该填demo
+          url: cinema
+        - desc: 电影模块
+          url: film
+        - desc: 影厅模块
+          url: hall
+        - desc: 用户模块
+          url: user
+
+
+

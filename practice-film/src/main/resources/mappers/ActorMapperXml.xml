@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.wllsrx.zoe.mapper.ActorMapper">
+
+    <select id="selectActors" resultType="cn.wllsrx.zoe.domain.vo.ActorVO">
+        select a.id as actorId ,a.actor_name,f.role_name from actor a left join film_actor f on a.id = f.actor_id
+    </select>
+</mapper>

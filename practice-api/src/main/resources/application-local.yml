@@ -1,0 +1,7 @@
+server:
+  port: 8987
+# 注册中心
+eureka:
+  client:
+    service-url:
+      defaultZone: http://zoe:zoe@127.0.0.1:8761/eureka/

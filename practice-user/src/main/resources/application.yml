@@ -1,0 +1,93 @@
+server:
+  port: 5559
+spring:
+  elasticsearch:
+    rest:
+      uris: 127.0.0.1:9200
+  data:
+    elasticsearch:
+      repositories:
+        enabled: true
+    cassandra:
+      cluster-name: elasticsearch
+  application:
+    name: user
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/practice?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      # 在没有连接可用的情况下等待超时时间
+      connection-timeout: 30000
+      # 核心连接池最大大小
+      maximum-pool-size: 5
+      minimum-idle: 1
+      idle-timeout: 30000
+#  rabbitmq:
+#    username: root
+#    password: root
+#    host: 127.0.0.1
+#    port: 5672
+#    virtual-host: /
+#    #开启手动ack
+#    listener:
+#      direct:
+#        acknowledge-mode: manual
+#      simple:
+#        acknowledge-mode: manual
+#    #消息发送失败退回
+#    publisher-returns: true
+mybatis-plus:
+  global-config:
+    # 排除banner
+    banner: false
+    # 配置逻辑删除
+    db-config:
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+      id-type: auto
+  # 枚举扫描包
+  type-enums-package: cn.wllsrx.zoe.enums
+  # xml文件路径
+  mapper-locations: classpath:/mappers/*.xml
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+tools:
+  doc:
+    enable: true
+    title: 用户服务
+    group:
+      enable: true
+      service-list:
+        - 用户模块:
+            # 下拉选择时展示的名称
+            desc: 用户模块
+            # 跟随zuul网关路由的path而定，如上为：/demo/**，那么这里应该填demo
+            url: user
+#注册中心
+eureka:
+  client:
+    service-url:
+#      defaultZone: http://zoe:zoe@127.0.0.1:8761/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
+  instance:
+    prefer-ip-address: true
+
+snow:
+  auth:
+    # 拦截的路径
+    path: /test
+    # 排除的路径
+    filter:
+    # 生成token的加密方式
+    type: hs256
+    # token存放的请求头名称
+    header: Authorization
+    # 加密的盐
+    salt: 88994984
+map:
+  key: 5b325c4bfff976dc906c0cb6181ae998
+
+

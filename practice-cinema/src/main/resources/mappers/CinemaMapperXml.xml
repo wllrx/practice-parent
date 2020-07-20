@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.wllsrx.zoe.mapper.CinemaMapper">
+
+
+    <select id="selectCinema" resultType="cn.wllsrx.zoe.domain.vo.CinemaVO">
+        select * from cinema
+            <where>
+                <if test="cinemaName !=null and cinemaName != ''" >
+                   cinema_name = #{cinemaName}
+                </if>
+            </where>
+    </select>
+</mapper>

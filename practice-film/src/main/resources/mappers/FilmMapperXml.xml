@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.wllsrx.zoe.mapper.FilmMapper">
+
+
+    <select id="selectFilms" resultType="cn.wllsrx.zoe.domain.vo.FilmVO">
+        select * from film m left join film_info i on m.id = i.film_id
+    </select>
+</mapper>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<OdfBody Source="CENTER" LogicalDate="2019-10-26" Time="141818177" Date="2019-10-23" Version="10" DocumentType="DT_Weather" DocumentCode="PFT0001--------------"
+         CompetitionCode="0001">
+    <Competition SportDes="2020夏季体能测试青岛站" Code="0001">
+        <Weather Date="2019-10-23">
+            <Condition Dimension="米" Value="245" Type="海拔"/>
+            <Condition Dimension="℃" Value="22" Type="温度"/>
+        </Weather>
+    </Competition>
+</OdfBody>

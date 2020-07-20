@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.wllsrx.zoe.mapper.HallMapper">
+
+    <select id="selectHall" resultType="cn.wllsrx.zoe.domain.vo.HallVO">
+    SELECT
+        c.cinema_name,
+        f.hall_name,
+        m.film_name,
+        f.begin_time,
+        f.end_time,
+        f.hall_id,
+        f.price
+    FROM
+        field f
+        LEFT JOIN cinema c ON c.id = f.cinema_id
+        LEFT JOIN film m ON m.id = f.film_id
+        <where>
+            <if test="hallName !=null and hallName != ''" >
+                f.hall_name = #{hallName}
+            </if>
+        </where>
+    </select>
+</mapper>

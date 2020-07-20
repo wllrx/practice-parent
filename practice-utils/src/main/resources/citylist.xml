@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Data>
+    <Head>
+        <occ01>1</occ01>
+        <occ02>内部客户</occ02>
+        <occ18>内部客户</occ18>
+        <occacti>Y</occacti>
+        <occdate>2019-04-11</occdate>
+    </Head>
+    <Head>
+        <occ01>2</occ01>
+        <occ02>临时客户</occ02>
+        <occ18>临时客户</occ18>
+        <occacti>Y</occacti>
+        <occdate>2019-04-11</occdate>
+    </Head>
+    <Head>
+        <occ01>3</occ01>
+        <occ02>其他个人</occ02>
+        <occ18>其他个人</occ18>
+        <occacti>Y</occacti>
+        <occdate>2019-04-30</occdate>
+    </Head>
+</Data>
