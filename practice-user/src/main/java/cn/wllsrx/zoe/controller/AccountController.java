@@ -5,11 +5,6 @@ import cn.wllsrx.zoe.domain.entity.Account;
 import cn.wllsrx.zoe.service.AccountEsService;
 import cn.wllsrx.zoe.service.AccountService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.onesports.framework.auth.TokenAssistant;
-import com.onesports.framework.auth.annotation.RequirePermissions;
-import com.onesports.framework.auth.annotation.RequireRoles;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.SignatureAlgorithm;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -21,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -39,8 +33,7 @@ public class AccountController {
     @Resource
     private AccountEsService esService;
 
-    @Resource
-    private TokenAssistant assistant;
+
 
     @GetMapping("/account")
     @ApiOperation("分页查询账户列表")
@@ -91,7 +84,7 @@ public class AccountController {
         return ResponseEntity.ok(this.accountService.login(userName, userPwd));
     }
 
-    @GetMapping("/test")
+    /*@GetMapping("/test")
     @RequirePermissions("add")
     @RequireRoles("admin")
     public ResponseEntity<String> test(){
@@ -112,7 +105,7 @@ public class AccountController {
         String token = assistant.createToken(map);
         Claims claims = assistant.parseToken(token);
         return ResponseEntity.ok(token+claims.toString());
-    }
+    }*/
 
     @GetMapping("/aggregate")
     @ApiOperation("aggregate")
@@ -127,4 +120,6 @@ public class AccountController {
         this.esService.aggregateAvg(columnName);
         return ResponseEntity.ok("");
     }
+
+
 }
