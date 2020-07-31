@@ -3,7 +3,7 @@ package cn.wllsrx.zoe.service;
 import cn.gjing.tools.common.result.PageResult;
 import cn.gjing.tools.common.util.BeanUtils;
 import cn.gjing.tools.common.util.EncryptionUtils;
-import cn.wllsrx.zoe.entity.Account;
+import cn.wllsrx.zoe.domain.entity.Account;
 import cn.wllsrx.zoe.domain.vo.AccountVO;
 import cn.wllsrx.zoe.exception.ServiceException;
 import cn.wllsrx.zoe.mapper.AccountMapper;
