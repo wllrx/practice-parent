@@ -11,8 +11,8 @@ spring:
 eureka:
   client:
     service-url:
-#      defaultZone: http://zoe:zoe@127.0.0.1:8761/eureka
-      defaultZone: http://127.0.0.1:8761/eureka
+      defaultZone: http://zoe:zoe@127.0.0.1:8761/eureka
+#      defaultZone: http://127.0.0.1:8761/eureka
     # 关闭注册自己，除非需要负载均衡
     register-with-eureka: false
     # 关闭拉取注册信息，除非需要负载均衡

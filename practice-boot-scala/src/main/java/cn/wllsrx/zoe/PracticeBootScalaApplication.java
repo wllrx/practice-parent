@@ -5,17 +5,16 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
-
 /**
  * @author zoe
- */
-@EnableDiscoveryClient
+ **/
 @SpringBootApplication
+@EnableDiscoveryClient
 @EnableSingleDoc
-public class PracticeUserApplication {
+public class PracticeBootScalaApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(PracticeUserApplication.class, args);
+        SpringApplication.run(PracticeBootScalaApplication.class, args);
     }
 
 }

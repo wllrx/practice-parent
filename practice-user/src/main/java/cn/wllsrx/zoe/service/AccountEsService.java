@@ -2,25 +2,21 @@ package cn.wllsrx.zoe.service;
 
 import cn.gjing.tools.common.util.BeanUtils;
 import cn.gjing.tools.common.util.EncryptionUtils;
-import cn.wllsrx.zoe.domain.entity.Account;
 import cn.wllsrx.zoe.domain.vo.AccountVO;
+import cn.wllsrx.zoe.entity.Account;
 import cn.wllsrx.zoe.repository.AccountRepository;
 import com.rabbitmq.client.Channel;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.index.query.QueryBuilders;
 import org.elasticsearch.search.aggregations.AggregationBuilders;
 import org.elasticsearch.search.aggregations.bucket.adjacency.AdjacencyMatrixAggregationBuilder;
 import org.elasticsearch.search.aggregations.bucket.histogram.HistogramAggregationBuilder;
 import org.elasticsearch.search.aggregations.bucket.terms.StringTerms;
-import org.elasticsearch.search.aggregations.metrics.avg.InternalAvg;
+import org.elasticsearch.search.aggregations.metrics.InternalAvg;
 import org.springframework.amqp.core.Message;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.elasticsearch.core.aggregation.AggregatedPage;
 import org.springframework.data.elasticsearch.core.query.FetchSourceFilter;
 import org.springframework.data.elasticsearch.core.query.NativeSearchQueryBuilder;
-import org.springframework.data.elasticsearch.core.query.SearchQuery;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -90,7 +86,7 @@ public class AccountEsService {
      * @return 账户列表
      */
     public List<Account> findAccount(String userName) {
-
+      /*
         SearchQuery searchQuery = new NativeSearchQueryBuilder()
 //                .withHighlightFields(HighlightBuilder.Field)
                 .withQuery(QueryBuilders.matchQuery("userName", userName))
@@ -102,7 +98,8 @@ public class AccountEsService {
                 .build();
         Page<Account> search = this.repository.search(searchQuery);
 
-        return search.getContent();
+        return search.getContent();*/
+        return null;
     }
 
     /**

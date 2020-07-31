@@ -1,7 +1,7 @@
 package cn.wllsrx.zoe.controller;
 
 import cn.gjing.tools.common.result.PageResult;
-import cn.wllsrx.zoe.domain.entity.Account;
+import cn.wllsrx.zoe.entity.Account;
 import cn.wllsrx.zoe.service.AccountEsService;
 import cn.wllsrx.zoe.service.AccountService;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;

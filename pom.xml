@@ -26,6 +26,7 @@
         <module>practice-zuul</module>
         <module>practice-design-patterns</module>
         <module>practice-leetcode</module>
+        <module>practice-boot-scala</module>
     </modules>
 
     <properties>

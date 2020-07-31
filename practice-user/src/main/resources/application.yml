@@ -70,24 +70,10 @@ tools:
 eureka:
   client:
     service-url:
-#      defaultZone: http://zoe:zoe@127.0.0.1:8761/eureka/
-      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://zoe:zoe@127.0.0.1:8761/eureka/
+#      defaultZone: http://127.0.0.1:8761/eureka/
   instance:
     prefer-ip-address: true
 
-snow:
-  auth:
-    # 拦截的路径
-    path: /test
-    # 排除的路径
-    filter:
-    # 生成token的加密方式
-    type: hs256
-    # token存放的请求头名称
-    header: Authorization
-    # 加密的盐
-    salt: 88994984
-map:
-  key: 5b325c4bfff976dc906c0cb6181ae998
 
 

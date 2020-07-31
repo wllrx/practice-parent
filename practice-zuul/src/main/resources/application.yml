@@ -58,6 +58,9 @@ zuul:
     user:
       path: /user/**
       serviceId: user
+    scala:
+      path: /scala/**
+      serviceId: scala
   #开启重试机制
   retryable: true
   #限流
@@ -84,11 +87,16 @@ zuul:
           refresh-interval: 1
           type:
             - url
+      scala:
+        - limit: 2
+          refresh-interval: 1
+          type:
+            - url
     repository: redis
   #zuul默认忽略请求头信息  test被过滤掉,其他请求头信息都不会被过滤
-  sensitive-headers: "test"
+  #sensitive-headers: "test"
   #放行test请求头,其他请求头信息都会被过滤
-  ignored-headers: "test"
+  #ignored-headers: "test"
   #统一前缀
   prefix:
 #hystrix的超时时间
@@ -125,6 +133,8 @@ tools:
           url: hall
         - desc: 用户模块
           url: user
+        - desc: scala模块
+          url: scala
 
 
 
