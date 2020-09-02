@@ -27,6 +27,7 @@
         <module>practice-design-patterns</module>
         <module>practice-leetcode</module>
         <module>practice-boot-scala</module>
+        <module>practice-bigdata</module>
     </modules>
 
     <properties>
